@@ -1,4 +1,4 @@
-import { Country } from 'src/country/country.entity';
+import { Country } from 'src/main/entities/country.entity';
 import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()

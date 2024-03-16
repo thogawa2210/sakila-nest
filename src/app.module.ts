@@ -1,12 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { City } from './city/city.entity';
-import { CityModule } from './city/city.module';
-import { Country } from './country/country.entity';
-import { CountryModule } from './country/country.module';
-import { StaffModule } from './staff/staff.module';
+import { MainModuleModule } from './main/main.module';
 
 @Module({
   imports: [
@@ -17,14 +11,10 @@ import { StaffModule } from './staff/staff.module';
       username: 'root',
       password: 'thogia123',
       database: 'sakila',
-      entities: [Country, City],
       synchronize: false,
+      autoLoadEntities: true,
     }),
-    StaffModule,
-    CountryModule,
-    CityModule,
+    MainModuleModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
